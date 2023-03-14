@@ -18,7 +18,7 @@ class _HomeState extends State<Home> {
             label: 'Home',
           ),
           NavigationDestination(
-            icon: Icon(Icons.folder_outlined,
+            icon: Icon(Icons.folder_open_outlined,
              size: 30,
             ),
             label: 'folder',
@@ -33,7 +33,7 @@ class _HomeState extends State<Home> {
             icon: Icon(Icons.music_note_outlined,
              size: 30,
             ),
-            label: 'Music',
+            label: 'Playlists',
           ),
            NavigationDestination(
             icon: Icon(Icons.account_circle_outlined,
@@ -41,34 +41,93 @@ class _HomeState extends State<Home> {
             ),
             label: 'Profile',
           ),
+          
         ],
       ),
       appBar: AppBar(
         title: Text('Chords Song Khmer'),
-        actions: [
+            actions: [
+          // Navigate to the Search Screen
           IconButton(
-          icon: Icon(Icons.search),
-          onPressed: () => Scaffold.of(context).openDrawer(),
-          tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
-        ),
-        IconButton(
-          icon: Icon(Icons.more_vert),
-          onPressed: () => Scaffold.of(context).openDrawer(),
-          tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
-        ),
+              onPressed: () => Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (_) => const SearchPage())),
+              icon: const Icon(Icons.search))
         ],
       ),
       body: Container(
         decoration: BoxDecoration(color: Colors.white),
           child: Column(
             children: <Widget>[
-                 Image(image: AssetImage('lib/assets/images/sample_chords.png'),), 
-                  Text('Demo',
-                
-                  ),                
+              ListTile(
+              leading: Icon(Icons.folder_open_outlined,
+              size: 33,
+              ),
+              title: const Text('Khmer songs', 
+              style: TextStyle(fontSize: 18),
+              ),
+              onTap: () {
+            },
+          ),
+            ListTile(
+              leading: Icon(Icons.folder_open_outlined),
+              title: const Text('English songs'),
+              onTap: () {
+              },
+            ),
+            ListTile(
+               leading: Icon(Icons.folder_open_outlined),
+               title: const Text('Thai songs'),
+               onTap: () {
+              },
+            ),
+            ListTile(
+               leading: Icon(Icons.folder_open_outlined),
+               title: const Text('Chinese songs'),
+               onTap: () {
+              },
+            ),
+             ListTile(
+               leading: Icon(Icons.folder_open_outlined),
+               title: const Text('Korean songs'),
+               onTap: () {
+              },
+            ),
+             ListTile(
+               leading: Icon(Icons.folder_open_outlined),
+               title: const Text('Germany songs'),
+               onTap: () {
+              },
+            ),
+             ListTile(
+               leading: Icon(Icons.folder_open_outlined),
+               title: const Text('Italy songs'),
+               onTap: () {
+              },
+            ),
+             ListTile(
+               leading: Icon(Icons.folder_open_outlined,
+               size: 33,
+               ),
+               title: const Text('Lao songs',
+               style: TextStyle(fontSize: 18),
+               ),
+               onTap: () {
+              },
+            ),
+             ListTile(
+               leading: Icon(Icons.folder_open_outlined),
+               title: const Text('Singapore songs'),
+               onTap: () {
+              },
+            ),
+             ListTile(
+               leading: Icon(Icons.folder_open_outlined),
+               title: const Text('japan songs'),
+               onTap: () {
+              },
+            ),  
       ],
     ),
-    alignment: Alignment.bottomCenter,
   ),
   drawer: Drawer(
   // Add a ListView to the drawer. This ensures the user can scroll
@@ -80,7 +139,7 @@ class _HomeState extends State<Home> {
     children: [
       const DrawerHeader(
         decoration: BoxDecoration(
-          color: Colors.blue,
+          color: Colors.grey,
         ),
         child:
           Icon(Icons.account_circle_rounded,
@@ -145,4 +204,37 @@ class _HomeState extends State<Home> {
 );
 
 }
+}
+
+// Search Page
+class SearchPage extends StatelessWidget {
+  const SearchPage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+          // The search area here
+        title: Container(
+        width: double.infinity,
+        height: 40,
+        decoration: BoxDecoration(
+            color: Colors.white, borderRadius: BorderRadius.circular(5)),
+        child: Center(
+          child: TextField(
+            decoration: InputDecoration(
+                prefixIcon: const Icon(Icons.search),
+                suffixIcon: IconButton(
+                  icon: const Icon(Icons.clear),
+                  onPressed: () {
+                    /* Clear the search field */
+                  },
+                ),
+                hintText: 'Search...',
+                border: InputBorder.none),
+          ),
+        ),
+      )),
+    );
+  }
 }

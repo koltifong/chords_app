@@ -1,4 +1,3 @@
-import 'package:chords_khmer_app/screens/bottombar.dart';
 import 'package:flutter/material.dart';
 import 'package:chords_khmer_app/screens/home.dart';
 
@@ -11,11 +10,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Chords Khmer app',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.grey,
       ),
-      home: Home(
-     
-      ),
+      home: Home(),
     );
   }
 }
