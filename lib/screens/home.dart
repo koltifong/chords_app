@@ -33,7 +33,7 @@ class _HomeState extends State<Home> {
             icon: Icon(Icons.music_note_outlined,
              size: 30,
             ),
-            label: 'Music',
+            label: 'Playlists',
           ),
            NavigationDestination(
             icon: Icon(Icons.account_circle_outlined,
