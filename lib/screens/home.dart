@@ -54,8 +54,7 @@ class _HomeState extends State<Home> {
               icon: const Icon(Icons.search))
         ],
       ),
-      body: Container(
-        decoration: BoxDecoration(color: Colors.white),
+      body: SingleChildScrollView (
           child: Column(
             children: <Widget>[
               ListTile(
@@ -66,6 +65,12 @@ class _HomeState extends State<Home> {
               style: TextStyle(fontSize: 18),
               ),
               onTap: () {
+                Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) =>  const KhmerSong(),
+                  ),
+            );
             },
           ),
             ListTile(
@@ -121,6 +126,48 @@ class _HomeState extends State<Home> {
               },
             ),
              ListTile(
+               leading: Icon(Icons.folder_open_outlined),
+               title: const Text('japan songs'),
+               onTap: () {
+              },
+            ),  
+            ListTile(
+               leading: Icon(Icons.folder_open_outlined),
+               title: const Text('japan songs'),
+               onTap: () {
+              },
+            ),  
+            ListTile(
+               leading: Icon(Icons.folder_open_outlined),
+               title: const Text('japan songs'),
+               onTap: () {
+              },
+            ),  
+            ListTile(
+               leading: Icon(Icons.folder_open_outlined),
+               title: const Text('japan songs'),
+               onTap: () {
+              },
+            ),  
+            ListTile(
+               leading: Icon(Icons.folder_open_outlined),
+               title: const Text('japan songs'),
+               onTap: () {
+              },
+            ),  
+            ListTile(
+               leading: Icon(Icons.folder_open_outlined),
+               title: const Text('japan songs'),
+               onTap: () {
+              },
+            ),  
+            ListTile(
+               leading: Icon(Icons.folder_open_outlined),
+               title: const Text('japan songs'),
+               onTap: () {
+              },
+            ),  
+            ListTile(
                leading: Icon(Icons.folder_open_outlined),
                title: const Text('japan songs'),
                onTap: () {
@@ -205,6 +252,27 @@ class _HomeState extends State<Home> {
 
 }
 }
+
+class KhmerSong extends StatelessWidget {
+  const KhmerSong({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Khmer Songs'),
+      ),
+     body: SingleChildScrollView (
+          child: Column(
+            children: <Widget>[
+              Image.asset('lib/assets/images/sample_chords.png')
+            ]
+      ),
+    ),
+    );
+  }
+}
+
 
 // Search Page
 class SearchPage extends StatelessWidget {
