@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:chords_khmer_app/screens/home.dart';
+import 'package:chords_khmer_app/screens/home_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.grey,
       ),
-      home: Home(),
-    );
+      home: Home_screen(),
+    ); 
   }
 }
