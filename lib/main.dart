@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:chords_khmer_app/screens/home_screen.dart';
+import 'package:chords_khmer_app/screens/home_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -10,9 +10,15 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Chords Khmer app',
       theme: ThemeData(
-        primarySwatch: Colors.grey,
+         primarySwatch: Colors.grey,
+      //   brightness: Brightness.light,
+      //   /* light theme settings */
+      // ),
+      // darkTheme: ThemeData(
+        // brightness: Brightness.dark,
+      //   /* dark theme settings */
       ),
-      home: Home_screen(),
+      home: Home_screen(),    
     ); 
   }
 }

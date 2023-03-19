@@ -29,7 +29,9 @@ class SearchPage extends StatelessWidget {
                 border: InputBorder.none),
           ),
         ),
-      )),
+      )
+      ),
+      body: Center(child: Text('Empty'),)
     );
   }
 }
