@@ -1,7 +1,7 @@
 import "package:flutter/material.dart";
 
 class ProfileBar extends StatelessWidget {
-  const ProfileBar({super.key});
+  const ProfileBar({key});
 
   @override
   Widget build(BuildContext context) {

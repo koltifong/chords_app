@@ -1,16 +1,18 @@
 import "package:flutter/material.dart";
 
 class FolderBar extends StatelessWidget {
-  const FolderBar({super.key});
+  const FolderBar({key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     body: SingleChildScrollView (
+     body: SingleChildScrollView(
           child: Column(
             children: <Widget>[
-              Text('folder'),
-            ]
+              Icon(Icons.folder_open,
+              size: 66,
+              ),
+            ],
       ),
     ),
     );

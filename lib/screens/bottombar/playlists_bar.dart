@@ -1,7 +1,7 @@
 import "package:flutter/material.dart";
 
 class PlaylistsBar extends StatelessWidget {
-  const PlaylistsBar({super.key});
+  const PlaylistsBar({key});
 
   @override
   Widget build(BuildContext context) {

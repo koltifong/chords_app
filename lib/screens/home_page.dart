@@ -1,5 +1,3 @@
-import 'dart:js_util';
-
 import 'package:chords_khmer_app/screens/bottombar/playlists_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -27,9 +25,9 @@ class _HomeState extends State<Home_screen> {
   @override
   Widget build (BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: NavigationBarTheme(
+       bottomNavigationBar: NavigationBarTheme(
         data: NavigationBarThemeData(
-          indicatorColor: Colors.blueGrey.shade200,
+          indicatorColor: Colors.blueGrey.shade100,
           labelTextStyle: MaterialStateProperty.all(
             TextStyle(
               fontSize: 14,
@@ -38,8 +36,8 @@ class _HomeState extends State<Home_screen> {
           ),
         ),
         child: NavigationBar(
-          height: 60,
-          backgroundColor: Color(0xFFf1f5fb),
+          height: 70,
+          backgroundColor: Colors.grey,
           selectedIndex: index,
           onDestinationSelected: (index) =>
               setState(() => this.index = index),
@@ -58,7 +56,7 @@ class _HomeState extends State<Home_screen> {
           ),
           NavigationDestination(
             icon: Icon(Icons.add_circle_outline,
-             size: 30,
+             size: 50,
             ),
             label: 'Add',
           ),
@@ -78,20 +76,11 @@ class _HomeState extends State<Home_screen> {
       ),
       ),
       appBar: AppBar(
-      //  leading: Builder(
-      //     builder: (BuildContext context) {
-      //       return IconButton(
-      //         icon: const Icon(Icons.menu),
-      //         onPressed: () { Scaffold.of(context).openDrawer(); },
-      //         tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
-      //       );
-      //     },
-      //   ),
-        title: Text('Chords Song Khmer',
+        title: Text('Chords App',
         style: TextStyle(
           color: Colors.black, 
           fontWeight: FontWeight.w500)),
-        centerTitle: true,
+        // centerTitle: true,
             actions:[
           // Navigate to the Search Screen
           IconButton(
@@ -103,10 +92,7 @@ class _HomeState extends State<Home_screen> {
       ),
       body: screens [index],
       drawer: Drawer(
-  // Add a ListView to the drawer. This ensures the user can scroll
-  // through the options in the drawer if there isn't enough vertical
-  // space to fit everything.
-  child: ListView(
+      child: ListView(
     // Important: Remove any padding from the ListView.
     padding: EdgeInsets.zero,
     children: [
@@ -114,17 +100,19 @@ class _HomeState extends State<Home_screen> {
         decoration: BoxDecoration(
           color: Colors.grey,
         ),
-        child: Text('Drawer Header'),
+        child: Text('Chords App'),
       ),
       ListTile(
-        title: const Text('Item 1'),
+        leading: Icon(Icons.settings_outlined),
+        title: const Text('Settings'),
         onTap: () {
           // Update the state of the app.
           // ...
         },
       ),
       ListTile(
-        title: const Text('Item 2'),
+        leading: Icon(Icons.info_outline),
+        title: const Text('About us'),
         onTap: () {
           // Update the state of the app.
           // ...
