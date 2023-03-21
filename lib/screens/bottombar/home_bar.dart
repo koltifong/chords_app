@@ -11,14 +11,14 @@ class HomeBar extends StatelessWidget {
       // padding: const EdgeInsets.all(8),
       children: [
         Container(
-      height: 80,
-      color: Colors.transparent,
-      child: const Center(
-        child: Text('Welcome to Chords App',
-        style: TextStyle(fontSize: 24),
+          height: 80,
+          color: Colors.transparent,
+          child: const Center(
+            child: Text('Welcome to Chords App',
+            style: TextStyle(fontSize: 24),
+            ),
+          ),
         ),
-      ),
-    ),
     // Text('Whats new?',
     // style: TextStyle(fontSize: 18),
     // ),
@@ -29,6 +29,7 @@ class HomeBar extends StatelessWidget {
           child: Carousel(
             dotSize: 5.0,
             dotSpacing: 20.0,
+            dotColor: Colors.grey,
             dotBgColor: Colors.transparent,
             indicatorBgPadding: 5.0,
             dotPosition: DotPosition.bottomRight,
@@ -42,53 +43,8 @@ class HomeBar extends StatelessWidget {
             ]
           ),
         ),
-      Container(
-      height: 100,
-      color: Colors.grey,
-      child: const Center(
-        child: Text('Artist',
-        style: TextStyle(fontSize: 24),
-        ),
-      ),
-    ),
-    Container(
-      height: 100,
-      color: Colors.lightGreen,
-      child: const Center(child: Text('Album')),
-    ),
-    Container(
-      height: 100,
-      width: 500,
-      color: Colors.lightBlue,
-      child: const Center(
-        child: Icon(
-          Icons.person_outline
-            ),
-          ),
-        ),
-        Container(
-      height: 100,
-      width: 500,
-      color: Colors.lightBlueAccent,
-      child: const Center(
-        child: Icon(
-          Icons.people_outline
-            ),
-          ),
-        ),
-         Container(
-      height: 100,
-      width: 500,
-      color: Colors.limeAccent,
-      child: const Center(
-        child: Icon(
-          Icons.menu_open
-            ),
-          ),
-        ),
       ],
      ),
-    
     );
   }
 }
