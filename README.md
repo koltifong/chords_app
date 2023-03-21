@@ -1,3 +1,3 @@
 # Chords App
 
-Chords app wasa developed for all musicians.
+Chords app was developed for all musicians.
