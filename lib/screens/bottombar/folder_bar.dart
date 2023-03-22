@@ -9,9 +9,9 @@ class FolderBar extends StatelessWidget {
      body: SingleChildScrollView(
           child: Column(
             children: <Widget>[
-              Icon(Icons.folder_open,
-              size: 66,
-              ),
+              // Icon(Icons.folder_open,
+              // size: 66,
+              // ),
             ],
       ),
     ),

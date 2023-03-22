@@ -12,10 +12,11 @@ class Login extends StatelessWidget {
         title: Text('Profile'),
       ),
       body: SingleChildScrollView(
-        child: Container(
+        child: Center(
           // padding: const EdgeInsets.all(tDefaultsize),
           child: Column(
             children: [
+              const SizedBox(height: 25),
               SizedBox(
                 width: 120,
                 height: 120,
@@ -25,6 +26,26 @@ class Login extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               Text('Tifong'),
+
+              const SizedBox(height: 35),
+
+              TextField(
+              decoration: InputDecoration(
+              prefixIcon: const Icon(Icons.person_outline),
+              labelText: 'Name',
+              border: OutlineInputBorder(),
+              ),
+            ),
+
+            TextField(
+              decoration: InputDecoration(
+              prefixIcon: const Icon(Icons.call),
+              labelText: 'Phone Number',
+              border: OutlineInputBorder(),
+              ),
+              keyboardType: TextInputType.phone,
+            ),
+              
             ],
           ),
         ),

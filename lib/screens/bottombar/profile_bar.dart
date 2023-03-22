@@ -1,6 +1,7 @@
 import "package:chords_khmer_app/screens/bottombar/home_bar.dart";
 import "package:chords_khmer_app/screens/home_page.dart";
 import "package:chords_khmer_app/screens/login.dart";
+import "package:flutter/gestures.dart";
 import "package:flutter/material.dart";
 
 class ProfileBar extends StatelessWidget {
@@ -16,7 +17,7 @@ class ProfileBar extends StatelessWidget {
       children: <Widget> [
       Container(
                 alignment: Alignment.center,
-                height: 80,
+                height: 60,
                 color: Colors.transparent,
                 child: Container(
                   child: Text('Login',
@@ -24,19 +25,18 @@ class ProfileBar extends StatelessWidget {
                   ),
                 ),
               ),
-        
       TextField(
         decoration: InputDecoration(
-        prefixIcon: const Icon(Icons.person),
-        hintText: 'Username',
+        prefixIcon: const Icon(Icons.person_outline),
+        labelText: 'Username',
         border: OutlineInputBorder(),
         ),
       ),
       const SizedBox(height: 24),
       TextField(
         decoration: InputDecoration(
-          prefixIcon: const Icon(Icons.lock),
-          hintText: 'Password',
+          prefixIcon: const Icon(Icons.lock_outline),
+          labelText: 'Password',
         border: OutlineInputBorder(),
         ),
         
@@ -52,6 +52,30 @@ class ProfileBar extends StatelessWidget {
             );
           },
         ),
+      Container(
+        alignment: Alignment.center,
+        child: Container(
+                  child: Text.rich(
+                  TextSpan(
+                    text: 'Do not have an account? ',
+                    style: TextStyle(fontSize: 16),
+                    children: <TextSpan>[
+                      TextSpan(
+                          text: 'Register',
+                          style: TextStyle(
+                            decoration: TextDecoration.underline,
+                            color: Colors.red,
+                          ),
+                          recognizer: TapGestureRecognizer()
+                      ..onTap = () {
+                          print('click'); 
+                      }),
+                      // can add more TextSpans here...
+                    ],
+                  ),
+                )
+                ),
+      ),
       ],
      ),
     ); 

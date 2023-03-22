@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       //   /* light theme settings */
       // ),
       // darkTheme: ThemeData(
-        // brightness: Brightness.dark,
+      //   brightness: Brightness.dark,
       //   /* dark theme settings */
       ),
       home: Home_screen(),    

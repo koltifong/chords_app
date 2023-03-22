@@ -1,4 +1,5 @@
-import 'package:chords_khmer_app/screens/bottombar/playlists_bar.dart';
+import 'package:chords_khmer_app/class/lang.dart';
+import 'package:chords_khmer_app/screens/bottombar/library_bar.dart';
 import 'package:flutter/material.dart';
 
 import 'package:chords_khmer_app/screens/appbar/search_screen.dart';
@@ -18,7 +19,7 @@ class _HomeState extends State<Home_screen> {
     HomeBar(),
     FolderBar(),
     AddBar(),
-    PlaylistsBar(),
+    LibraryBar(),
     ProfileBar(),
   ];
 
@@ -37,7 +38,7 @@ class _HomeState extends State<Home_screen> {
         ),
         child: NavigationBar(
           height: 70,
-          backgroundColor: Colors.grey,
+          backgroundColor: Colors.transparent,
           selectedIndex: index,
           onDestinationSelected: (index) =>
               setState(() => this.index = index),
@@ -61,10 +62,10 @@ class _HomeState extends State<Home_screen> {
             label: 'Add',
           ),
             NavigationDestination(
-            icon: Icon(Icons.music_note_outlined,
+            icon: Icon(Icons.library_music_outlined,
              size: 30,
             ),
-            label: 'Playlists',
+            label: 'Library',
           ),
            NavigationDestination(
             icon: Icon(Icons.account_circle_outlined,
@@ -76,6 +77,8 @@ class _HomeState extends State<Home_screen> {
       ),
       ),
       appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        leading: Image.asset('lib/assets/images/playstore.png'),
         title: Text('Chords App',
         style: TextStyle(
           color: Colors.black, 
@@ -83,44 +86,64 @@ class _HomeState extends State<Home_screen> {
         // centerTitle: true,
             actions:[
           // Navigate to the Search Screen
-          IconButton(
-              onPressed: () => Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (_) => const SearchPage())),
-              icon: const Icon(Icons.search)),
-          IconButton(onPressed: () => {}, icon: Icon(Icons.language)),
-        ],
-      ),
-      body: screens [index],
-      drawer: Drawer(
-      child: ListView(
-    // Important: Remove any padding from the ListView.
-    padding: EdgeInsets.zero,
-    children: [
-      const DrawerHeader(
-        decoration: BoxDecoration(
-          color: Colors.grey,
-        ),
-        child: Text('Chords App'),
-      ),
-      ListTile(
-        leading: Icon(Icons.settings_outlined),
-        title: const Text('Settings'),
-        onTap: () {
-          // Update the state of the app.
-          // ...
-        },
-      ),
-      ListTile(
-        leading: Icon(Icons.info_outline),
-        title: const Text('About us'),
-        onTap: () {
-          // Update the state of the app.
-          // ...
-        },
-      ),
-    ],
+            IconButton(
+                onPressed: () => Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (_) => const SearchPage())),
+                icon: const Icon(Icons.search)),
+            DropdownButton(
+              underline: SizedBox(),
+              icon: Icon(Icons.language_outlined),
+              items: getLanguages.map((Language lang) {
+              return new DropdownMenuItem<String>(
+                          value: lang.languageCode,
+                          child: new Text(lang.name),
+                        );
+                      }).toList(),
+                onChanged: (val) {
+                print(val);
+              },
+            ),
+      ],
   ),
-)
+      body: screens [index],
+//       drawer: Drawer(
+//       child: ListView(
+//     // Important: Remove any padding from the ListView.
+//     padding: EdgeInsets.zero,
+//     children: [
+//       const DrawerHeader(
+//         decoration: BoxDecoration(
+//           color: Colors.grey,
+//         ),
+//         child: Text('Chords App'),
+//       ),
+//        ListTile(
+//         leading: Icon(Icons.people_outlined),
+//         title: const Text('Settings'),
+//         onTap: () {
+//           // Update the state of the app.
+//           // ...
+//         },
+//       ),
+//       ListTile(
+//         leading: Icon(Icons.settings_outlined),
+//         title: const Text('Settings'),
+//         onTap: () {
+//           // Update the state of the app.
+//           // ...
+//         },
+//       ),
+//       ListTile(
+//         leading: Icon(Icons.info_outline),
+//         title: const Text('About us'),
+//         onTap: () {
+//           // Update the state of the app.
+//           // ...
+//         },
+//       ),
+//     ],
+//   ),
+// )
   );
 }
 }
