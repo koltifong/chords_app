@@ -1,4 +1,6 @@
 import "package:carousel_pro/carousel_pro.dart";
+import "package:chords_khmer_app/screens/bottombar/library/playlists_button.dart";
+import "package:chords_khmer_app/screens/bottombar/library/songs_button.dart";
 import "package:flutter/material.dart";
 
 class HomeBar extends StatelessWidget {
@@ -34,15 +36,15 @@ class HomeBar extends StatelessWidget {
             dotPosition: DotPosition.bottomRight,
             autoplayDuration: Duration(seconds: 10),
             // autoplay: false,
-            images: [
-              Image.asset('lib/assets/images/metallica.jpg', fit: BoxFit.cover),
-              Image.asset('lib/assets/images/ac_dc.jpg', fit: BoxFit.cover),
-              Image.asset('lib/assets/images/slipknot.jpg', fit: BoxFit.cover)
-            ]
+              images: [
+                Image.asset('lib/assets/images/metallica.jpg', fit: BoxFit.cover),
+                Image.asset('lib/assets/images/ac_dc.jpg', fit: BoxFit.cover),
+                Image.asset('lib/assets/images/slipknot.jpg', fit: BoxFit.cover)
+              ]
+            ),
           ),
-        ),
-      ],
-     ),
+        ],
+      )
     );
   }
 }

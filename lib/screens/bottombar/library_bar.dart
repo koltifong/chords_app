@@ -1,4 +1,5 @@
 import "package:chords_khmer_app/screens/bottombar/library/playlists_button.dart";
+import "package:chords_khmer_app/screens/bottombar/library/songs_button.dart";
 import "package:flutter/material.dart";
 
 class LibraryBar extends StatelessWidget {
@@ -8,7 +9,7 @@ class LibraryBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget> [
           Container(
             padding: EdgeInsets.all(10),
@@ -38,6 +39,11 @@ class LibraryBar extends StatelessWidget {
                   ElevatedButton(
                   child: Text('Songs'),
                   onPressed: () {
+                     Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => SongsButton()),
+                    );
               },
               style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.grey,

@@ -1,9 +1,12 @@
 import 'package:chords_khmer_app/class/lang.dart';
+import 'package:chords_khmer_app/screens/about_us.dart';
+import 'package:chords_khmer_app/screens/auth/login.dart';
 import 'package:chords_khmer_app/screens/bottombar/library_bar.dart';
+import 'package:chords_khmer_app/screens/drawer/my_account.dart';
 import 'package:flutter/material.dart';
 
 import 'package:chords_khmer_app/screens/appbar/search_screen.dart';
-import 'package:chords_khmer_app/screens/bottombar/folder_bar.dart';
+import 'package:chords_khmer_app/screens/bottombar/explore_bar.dart';
 import 'package:chords_khmer_app/screens/bottombar/home_bar.dart';
 import 'package:chords_khmer_app/screens/bottombar/add_bar.dart';
 import 'package:chords_khmer_app/screens/bottombar/profile_bar.dart';
@@ -17,7 +20,7 @@ class _HomeState extends State<Home_screen> {
   int index = 0;
   final screens = [
     HomeBar(),
-    FolderBar(),
+    ExploreBar(),
     AddBar(),
     LibraryBar(),
     ProfileBar(),
@@ -50,10 +53,10 @@ class _HomeState extends State<Home_screen> {
             label: 'Home',
           ),
           NavigationDestination(
-            icon: Icon(Icons.folder_open_outlined,
+            icon: Icon(Icons.explore_outlined,
              size: 30,
             ),
-            label: 'Folder',
+            label: 'Explore',
           ),
           NavigationDestination(
             icon: Icon(Icons.add_circle_outline,
@@ -78,7 +81,7 @@ class _HomeState extends State<Home_screen> {
       ),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        leading: Image.asset('lib/assets/images/playstore.png'),
+        // leading: Image.asset('lib/assets/images/playstore.png'),
         title: Text('Chords App',
         style: TextStyle(
           color: Colors.black, 
@@ -90,6 +93,7 @@ class _HomeState extends State<Home_screen> {
                 onPressed: () => Navigator.of(context)
                     .push(MaterialPageRoute(builder: (_) => const SearchPage())),
                 icon: const Icon(Icons.search)),
+            // Text('Sign in'),
             DropdownButton(
               underline: SizedBox(),
               icon: Icon(Icons.language_outlined),
@@ -104,46 +108,71 @@ class _HomeState extends State<Home_screen> {
               },
             ),
       ],
+      
   ),
       body: screens [index],
-//       drawer: Drawer(
-//       child: ListView(
-//     // Important: Remove any padding from the ListView.
-//     padding: EdgeInsets.zero,
-//     children: [
-//       const DrawerHeader(
-//         decoration: BoxDecoration(
-//           color: Colors.grey,
-//         ),
-//         child: Text('Chords App'),
-//       ),
-//        ListTile(
-//         leading: Icon(Icons.people_outlined),
-//         title: const Text('Settings'),
-//         onTap: () {
-//           // Update the state of the app.
-//           // ...
-//         },
-//       ),
-//       ListTile(
-//         leading: Icon(Icons.settings_outlined),
-//         title: const Text('Settings'),
-//         onTap: () {
-//           // Update the state of the app.
-//           // ...
-//         },
-//       ),
-//       ListTile(
-//         leading: Icon(Icons.info_outline),
-//         title: const Text('About us'),
-//         onTap: () {
-//           // Update the state of the app.
-//           // ...
-//         },
-//       ),
-//     ],
-//   ),
-// )
+      drawer: Drawer(
+      child: ListView(
+    // Important: Remove any padding from the ListView.
+    padding: EdgeInsets.zero,
+    children: [
+      const DrawerHeader(
+        decoration: BoxDecoration(
+          color: Colors.grey,
+        ),
+        child: Text('Chords App'),
+      ),
+       ListTile(
+        leading: Icon(Icons.account_circle_outlined),
+        title: const Text('My Account'),
+        onTap: () {
+           Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const MyAccount()),
+        );
+        },
+      ),
+      ListTile(
+        leading: Icon(Icons.people_outlined),
+        title: const Text('Sample'),
+        onTap: () {
+          // Update the state of the app.
+          // ...
+        },
+      ),
+      ListTile(
+        leading: Icon(Icons.settings_outlined),
+        title: const Text('Settings'),
+        onTap: () {
+          // Update the state of the app.
+          // ...
+        },
+      ),
+      ListTile(
+        leading: Icon(Icons.info_outline),
+        title: const Text('About us'),
+        onTap: () {
+           Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const AboutUs ()),
+        );
+        },
+      ),
+      Spacer(),
+      Divider(),
+      ListTile(
+        leading: Icon(Icons.login),
+        title: const Text('Login'),
+        onTap: () {
+          Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const LoginPage()),
+        );
+        },
+      ),
+    ],
+  ),
+),
   );
 }
 }
