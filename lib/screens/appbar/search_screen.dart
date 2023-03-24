@@ -31,7 +31,57 @@ class SearchPage extends StatelessWidget {
         ),
       )
       ),
-      body: Center(child: Text('Empty'),)
+      body: GridView.count(
+        primary: false,
+        padding: const EdgeInsets.all(20),
+        crossAxisSpacing: 10,
+        mainAxisSpacing: 10,
+        crossAxisCount: 2,
+        
+        children: <Widget>[
+          Container(
+            padding: const EdgeInsets.all(8),
+            color: Colors.teal[100],
+            child: const Text("Pop"),
+          ),
+          Container(
+            padding: const EdgeInsets.all(8),
+            color: Colors.teal[200],
+            child: const Text('Rock'),
+          ),
+          Container(
+            padding: const EdgeInsets.all(8),
+            color: Colors.teal[300],
+            child: const Text('Meta'),
+          ),
+          Container(
+            padding: const EdgeInsets.all(8),
+            color: Colors.teal[400],
+            child: const Text('Soul'),
+          ),
+          Container(
+            padding: const EdgeInsets.all(8),
+            color: Colors.teal[500],
+            child: const Text('R&B'),
+          ),
+          Container(
+            padding: const EdgeInsets.all(8),
+            color: Colors.teal[600],
+            child: const Text('Hip hop'),
+          ),
+          Container(
+            padding: const EdgeInsets.all(8),
+            color: Colors.teal[700],
+            child: const Text('Chill'),
+          ),
+          Container(
+            padding: const EdgeInsets.all(8),
+            color: Colors.teal[800],
+            child: const Text('Jazz'),
+          ),
+        ],
+      )
+      
     );
   }
 }

@@ -54,6 +54,7 @@ flutter:
       - lib/assets/images/music.png
       - lib/assets/images/profile.png
       - lib/assets/images/slipknot.jpg
+      - lib/assets/images/tifong.jpg
       - lib/assets/images/ac_dc.jpg
       - lib/assets/images/playstore.png
       - lang/en.json

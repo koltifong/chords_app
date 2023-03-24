@@ -1,20 +1,20 @@
-import 'package:chords_khmer_app/screens/appbar/search_screen.dart';
 import 'package:flutter/material.dart';
 
-class AboutUs extends StatelessWidget {
-  const AboutUs({Key? key}) : super(key: key);
+class Settings extends StatelessWidget {
+  const Settings({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('About us'),
+        title: Text('ការកំណត់'),
+        // centerTitle: true,
       ),
       body: SingleChildScrollView(
-        child: Container(
+        child: Center(
           // padding: const EdgeInsets.all(tDefaultsize),
           child: Column(
-            
+
           ),
         ),
       ),

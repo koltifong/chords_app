@@ -1,8 +1,10 @@
 import 'package:chords_khmer_app/class/lang.dart';
-import 'package:chords_khmer_app/screens/about_us.dart';
+import 'package:chords_khmer_app/screens/drawer/about_us.dart';
+import 'package:chords_khmer_app/screens/appbar/notifications_screen.dart';
 import 'package:chords_khmer_app/screens/auth/login.dart';
 import 'package:chords_khmer_app/screens/bottombar/library_bar.dart';
 import 'package:chords_khmer_app/screens/drawer/my_account.dart';
+import 'package:chords_khmer_app/screens/drawer/settings.dart';
 import 'package:flutter/material.dart';
 
 import 'package:chords_khmer_app/screens/appbar/search_screen.dart';
@@ -50,31 +52,31 @@ class _HomeState extends State<Home_screen> {
             icon: Icon(Icons.home_outlined,
             size: 30,
             ),
-            label: 'Home',
+            label: 'ទំព័រដើម',
           ),
           NavigationDestination(
             icon: Icon(Icons.explore_outlined,
              size: 30,
             ),
-            label: 'Explore',
+            label: 'ស្វែងរក',
           ),
           NavigationDestination(
             icon: Icon(Icons.add_circle_outline,
-             size: 50,
+             size: 45,
             ),
-            label: 'Add',
+            label: 'បន្ថែម',
           ),
             NavigationDestination(
             icon: Icon(Icons.library_music_outlined,
              size: 30,
             ),
-            label: 'Library',
+            label: 'ចង្វាក់',
           ),
            NavigationDestination(
-            icon: Icon(Icons.account_circle_outlined,
+            icon: Icon(Icons.widgets_outlined,
              size: 30,
             ),
-            label: 'Profile',
+            label: 'ផ្សេងៗ',
           ),
         ],
       ),
@@ -82,13 +84,19 @@ class _HomeState extends State<Home_screen> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         // leading: Image.asset('lib/assets/images/playstore.png'),
-        title: Text('Chords App',
+        title: Text('Chords',
         style: TextStyle(
           color: Colors.black, 
           fontWeight: FontWeight.w500)),
         // centerTitle: true,
             actions:[
           // Navigate to the Search Screen
+
+             IconButton(
+                onPressed: () => Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (_) => const NotificationScreen())),
+                icon: const Icon(Icons.notifications_outlined)),
+
             IconButton(
                 onPressed: () => Navigator.of(context)
                     .push(MaterialPageRoute(builder: (_) => const SearchPage())),
@@ -96,7 +104,7 @@ class _HomeState extends State<Home_screen> {
             // Text('Sign in'),
             DropdownButton(
               underline: SizedBox(),
-              icon: Icon(Icons.language_outlined),
+              icon: Icon(Icons.language),
               items: getLanguages.map((Language lang) {
               return new DropdownMenuItem<String>(
                           value: lang.languageCode,
@@ -118,39 +126,49 @@ class _HomeState extends State<Home_screen> {
     children: [
       const DrawerHeader(
         decoration: BoxDecoration(
-          color: Colors.grey,
+          color: Colors.transparent,
         ),
-        child: Text('Chords App'),
+        child: 
+        Text('Chords'),
       ),
        ListTile(
-        leading: Icon(Icons.account_circle_outlined),
-        title: const Text('My Account'),
+        leading: Icon(Icons.star_outline_outlined),
+        title: const Text('Chords Pro',
+        style: TextStyle(fontSize: 16),
+        ),
         onTap: () {
-           Navigator.push(
+          
+        },
+      ),
+      ListTile(
+        leading: Icon(Icons.account_box_outlined),
+        title: const Text('គណនី',
+        style: TextStyle(fontSize: 16),
+        ),
+        onTap: () {
+          Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => const MyAccount()),
         );
         },
       ),
       ListTile(
-        leading: Icon(Icons.people_outlined),
-        title: const Text('Sample'),
-        onTap: () {
-          // Update the state of the app.
-          // ...
-        },
-      ),
-      ListTile(
         leading: Icon(Icons.settings_outlined),
-        title: const Text('Settings'),
+        title: const Text('ការកំណត់',
+        style: TextStyle(fontSize: 16),
+        ),
         onTap: () {
-          // Update the state of the app.
-          // ...
+          Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const Settings()),
+        );
         },
       ),
       ListTile(
         leading: Icon(Icons.info_outline),
-        title: const Text('About us'),
+        title: const Text('អំពី',
+        style: TextStyle(fontSize: 16),
+        ),
         onTap: () {
            Navigator.push(
           context,
@@ -159,10 +177,12 @@ class _HomeState extends State<Home_screen> {
         },
       ),
       Spacer(),
-      Divider(),
+      Divider(color: Colors.brown,),
       ListTile(
         leading: Icon(Icons.login),
-        title: const Text('Login'),
+        title: const Text('ចូលគណនី',
+        style: TextStyle(fontSize: 16),
+        ),
         onTap: () {
           Navigator.push(
           context,
@@ -172,6 +192,7 @@ class _HomeState extends State<Home_screen> {
       ),
     ],
   ),
+  
 ),
   );
 }

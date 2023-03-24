@@ -8,9 +8,12 @@ class LibraryBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: <Widget> [
+      body: Container(
+            padding: EdgeInsets.all(10),
+        child: Row(
+
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget> [
           Container(
             padding: EdgeInsets.all(10),
                   child:
@@ -33,7 +36,7 @@ class LibraryBar extends StatelessWidget {
                   ),
             ),
           ),
-         Container(
+          Container(
             padding: EdgeInsets.all(10),
                   child:
                   ElevatedButton(
@@ -54,7 +57,7 @@ class LibraryBar extends StatelessWidget {
                   ),
             ),
           ),
-         Container(
+          Container(
             padding: EdgeInsets.all(10),
                   child:
                   ElevatedButton(
@@ -70,23 +73,24 @@ class LibraryBar extends StatelessWidget {
                   ),
             ),
           ),
-        Container(
-            padding: EdgeInsets.all(11),
-                  child:
-                  ElevatedButton(
-                  child: Text('Artists'),
-                  onPressed: () {
-              },
-              style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.grey,
-                  // padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-                  textStyle: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.bold),
-              ),
-            ),
-          ),
-        ],
+        // Container(
+        //     padding: EdgeInsets.all(11),
+        //           child:
+        //           ElevatedButton(
+        //           child: Text('Artists'),
+        //           onPressed: () {
+        //       },
+        //       style: ElevatedButton.styleFrom(
+        //           backgroundColor: Colors.grey,
+        //           // padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+        //           textStyle: TextStyle(
+        //           fontSize: 14,
+        //           fontWeight: FontWeight.bold),
+        //       ),
+        //     ),
+        //   ),
+          ],
+        ),
       ),
     );
   }
