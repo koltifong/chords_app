@@ -82,26 +82,26 @@ class _HomeState extends State<Home_screen> {
       ),
       ),
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.grey,
+        bottomOpacity: 0.0,
+        elevation: 0.0,
         // leading: Image.asset('lib/assets/images/playstore.png'),
         title: Text('Chords',
         style: TextStyle(
-          color: Colors.black, 
           fontWeight: FontWeight.w500)),
         // centerTitle: true,
             actions:[
-          // Navigate to the Search Screen
-
+          // Navigate to the Notifications Screen
              IconButton(
                 onPressed: () => Navigator.of(context)
                     .push(MaterialPageRoute(builder: (_) => const NotificationScreen())),
                 icon: const Icon(Icons.notifications_outlined)),
-
+          // Navigate to the Seacrch Screen
             IconButton(
                 onPressed: () => Navigator.of(context)
                     .push(MaterialPageRoute(builder: (_) => const SearchPage())),
                 icon: const Icon(Icons.search)),
-            // Text('Sign in'),
+            // Switch Languages
             DropdownButton(
               underline: SizedBox(),
               icon: Icon(Icons.language),
@@ -126,7 +126,7 @@ class _HomeState extends State<Home_screen> {
     children: [
       const DrawerHeader(
         decoration: BoxDecoration(
-          color: Colors.transparent,
+          color: Color.fromARGB(255, 200, 198, 198),
         ),
         child: 
         Text('Chords'),
