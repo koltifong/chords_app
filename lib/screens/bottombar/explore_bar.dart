@@ -7,6 +7,7 @@ class ExploreBar extends StatelessWidget {
   @override
    Widget build(BuildContext context) {
     return Scaffold(
+<<<<<<< HEAD
       backgroundColor: Color.fromRGBO(245, 245, 245, 0.9),
        body: SingleChildScrollView(
         child: Container(
@@ -300,6 +301,16 @@ class ExploreBar extends StatelessWidget {
           ],
         ),
        ),
+=======
+      body: SingleChildScrollView(
+      child: Center(
+        child: Column(
+            children: [
+            
+            ],
+          ),
+        ),
+>>>>>>> 1cc17b5ce1eb0eb2f6cbb5d9060b825fc4d41ac1
       ),
     );
   }
