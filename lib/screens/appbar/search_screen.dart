@@ -31,13 +31,13 @@ class SearchPage extends StatelessWidget {
         ),
       )
       ),
+      backgroundColor: Color.fromRGBO(245, 245, 245, 0.9),
       body: GridView.count(
         primary: false,
         padding: const EdgeInsets.all(20),
         crossAxisSpacing: 10,
         mainAxisSpacing: 10,
         crossAxisCount: 2,
-        
         children: <Widget>[
           Container(
             padding: const EdgeInsets.all(8),
@@ -80,8 +80,7 @@ class SearchPage extends StatelessWidget {
             child: const Text('Jazz'),
           ),
         ],
-      )
-      
+      ),  
     );
   }
 }

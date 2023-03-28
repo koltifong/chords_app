@@ -1,4 +1,5 @@
 import 'package:chords_khmer_app/class/lang.dart';
+import 'package:chords_khmer_app/screens/chat_screen.dart';
 import 'package:chords_khmer_app/screens/drawer/about_us.dart';
 import 'package:chords_khmer_app/screens/appbar/notifications_screen.dart';
 import 'package:chords_khmer_app/screens/auth/login.dart';
@@ -31,56 +32,6 @@ class _HomeState extends State<Home_screen> {
   @override
   Widget build (BuildContext context) {
     return Scaffold(
-       bottomNavigationBar: NavigationBarTheme(
-        data: NavigationBarThemeData(
-          indicatorColor: Colors.blueGrey.shade100,
-          labelTextStyle: MaterialStateProperty.all(
-            TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.w500
-            ),
-          ),
-        ),
-        child: NavigationBar(
-          height: 70,
-          backgroundColor: Colors.transparent,
-          selectedIndex: index,
-          onDestinationSelected: (index) =>
-              setState(() => this.index = index),
-        destinations: [
-          NavigationDestination(
-            icon: Icon(Icons.home_outlined,
-            size: 30,
-            ),
-            label: 'ទំព័រដើម',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.explore_outlined,
-             size: 30,
-            ),
-            label: 'ស្វែងរក',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.add_circle_outline,
-             size: 45,
-            ),
-            label: 'បន្ថែម',
-          ),
-            NavigationDestination(
-            icon: Icon(Icons.library_music_outlined,
-             size: 30,
-            ),
-            label: 'ចង្វាក់',
-          ),
-           NavigationDestination(
-            icon: Icon(Icons.widgets_outlined,
-             size: 30,
-            ),
-            label: 'ផ្សេងៗ',
-          ),
-        ],
-      ),
-      ),
       appBar: AppBar(
         backgroundColor: Colors.grey,
         bottomOpacity: 0.0,
@@ -118,10 +69,28 @@ class _HomeState extends State<Home_screen> {
       ],
       
   ),
-      body: screens [index],
+      body: Stack(
+        children: [
+           screens [index],
+           Positioned(
+              bottom: 10,
+              right: 10, 
+              child: FloatingActionButton(
+              onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ChatScreen()),
+                );},
+              backgroundColor: Colors.white,
+              child: const 
+              Icon(Icons.chat_bubble_outline),
+              tooltip: 'Chat',
+      ),
+    ),
+  ],
+),
       drawer: Drawer(
       child: ListView(
-    // Important: Remove any padding from the ListView.
     padding: EdgeInsets.zero,
     children: [
       const DrawerHeader(
@@ -192,8 +161,57 @@ class _HomeState extends State<Home_screen> {
       ),
     ],
   ),
-  
 ),
+       bottomNavigationBar: NavigationBarTheme(
+        data: NavigationBarThemeData(
+          indicatorColor: Colors.blueGrey.shade100,
+          labelTextStyle: MaterialStateProperty.all(
+            TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.w500
+            ),
+          ),
+        ),
+        child: NavigationBar(
+          height: 70,
+          backgroundColor: Colors.transparent,
+          selectedIndex: index,
+          onDestinationSelected: (index) =>
+              setState(() => this.index = index),
+        destinations: [
+          NavigationDestination(
+            icon: Icon(Icons.home_outlined,
+            size: 30,
+            ),
+            label: 'ទំព័រដើម',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.explore_outlined,
+             size: 30,
+            ),
+            label: 'ស្វែងរក',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.add_circle_outline,
+             size: 45,
+            ),
+            label: 'បន្ថែម',
+          ),
+            NavigationDestination(
+            icon: Icon(Icons.library_music_outlined,
+             size: 30,
+            ),
+            label: 'ចង្វាក់',
+          ),
+           NavigationDestination(
+            icon: Icon(Icons.widgets_outlined,
+             size: 30,
+            ),
+            label: 'ផ្សេងៗ',
+          ),
+        ],
+      ),
+      ),
   );
 }
 }
