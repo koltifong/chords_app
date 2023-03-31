@@ -13,8 +13,8 @@ class HomeBar extends StatelessWidget {
     return Scaffold(
     backgroundColor: Color.fromRGBO(245, 245, 245, 0.9),
      body: SingleChildScrollView(
-      child: 
-      Container(
+      child: SafeArea(
+        child: Container(
        child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -71,6 +71,7 @@ class HomeBar extends StatelessWidget {
           ),
           ),
           const SizedBox(height: 10,),
+          SafeArea(child: 
       Container(
         padding: EdgeInsets.all(10),
             child: Row(
@@ -89,7 +90,7 @@ class HomeBar extends StatelessWidget {
                 children: [
                 const SizedBox(height: 15),
                   SizedBox(
-                    width: 380,
+                    width: 350,
                     height: 75,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(10),
@@ -99,7 +100,7 @@ class HomeBar extends StatelessWidget {
                           Column(
                            children: [
                              IconButton(onPressed: () {
-                                Navigator.push(
+                            Navigator.push(
                             context,
                             MaterialPageRoute(builder: (context) => FolderButton()),
                             );
@@ -234,7 +235,7 @@ class HomeBar extends StatelessWidget {
               ],
               ),
           ),
-          
+          ),
           Container(
             alignment: Alignment.centerLeft,
             padding: EdgeInsets.all(10),
@@ -388,9 +389,10 @@ class HomeBar extends StatelessWidget {
           //   ),
           // ), 
           
-
+          
         ],
         ),
+      ),
       ),
       ),
     );
