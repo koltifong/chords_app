@@ -90,7 +90,7 @@ class HomeBar extends StatelessWidget {
                 children: [
                 const SizedBox(height: 15),
                   SizedBox(
-                    width: 350,
+                    width: 300,
                     height: 75,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(10),
