@@ -29,7 +29,7 @@ class SearchPage extends StatelessWidget {
                 border: InputBorder.none),
           ),
         ),
-      )
+      ),
       ),
       backgroundColor: Color.fromRGBO(245, 245, 245, 0.9),
       body: GridView.count(

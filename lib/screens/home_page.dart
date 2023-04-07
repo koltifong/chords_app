@@ -1,11 +1,11 @@
 import 'package:chords_khmer_app/class/lang.dart';
-import 'package:chords_khmer_app/screens/chat_screen.dart';
 import 'package:chords_khmer_app/screens/drawer/about_us.dart';
 import 'package:chords_khmer_app/screens/appbar/notifications_screen.dart';
-import 'package:chords_khmer_app/screens/auth/login.dart';
 import 'package:chords_khmer_app/screens/bottombar/library_bar.dart';
 import 'package:chords_khmer_app/screens/drawer/my_account.dart';
 import 'package:chords_khmer_app/screens/drawer/settings.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:chords_khmer_app/screens/auth/auth.dart';
 import 'package:flutter/material.dart';
 
 import 'package:chords_khmer_app/screens/appbar/search_screen.dart';
@@ -17,6 +17,27 @@ import 'package:chords_khmer_app/screens/bottombar/profile_bar.dart';
 class Home_screen extends StatefulWidget {
   @override
   _HomeState createState () => _HomeState();
+
+}
+
+final User? user = Auth().currentUser;
+
+Future<void> signOut() async {
+  await Auth().signOut();
+}
+
+Widget _userUid() {
+  return Text(user?.email ?? 'User email');
+}
+
+Widget _signOutButton() {
+  return ElevatedButton(
+    style: ElevatedButton.styleFrom(
+      primary: Colors.red,
+    ),
+    onPressed: signOut,
+    child: const Text('Sign Out'),
+  );
 }
 
 class _HomeState extends State<Home_screen> {
@@ -36,57 +57,49 @@ class _HomeState extends State<Home_screen> {
         backgroundColor: Colors.grey,
         bottomOpacity: 0.0,
         elevation: 0.0,
-        // leading: Image.asset('lib/assets/images/playstore.png'),
-        title: Text('Chords',
+        title: const Text('Chords',
         style: TextStyle(
           fontWeight: FontWeight.w500)),
         // centerTitle: true,
             actions:[
           // Navigate to the Notifications Screen
              IconButton(
-                onPressed: () => Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (_) => const NotificationScreen())),
-                icon: const Icon(Icons.notifications_outlined)),
-          // Navigate to the Seacrch Screen
-            IconButton(
-                onPressed: () => Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (_) => const SearchPage())),
-                icon: const Icon(Icons.search)),
+                onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                    builder: (_) => const NotificationScreen())),
+                icon: const Icon(Icons.notifications)),
             // Switch Languages
             DropdownButton(
-              underline: SizedBox(),
-              icon: Icon(Icons.language),
+              underline: const SizedBox(),
+              icon: const Icon(Icons.language),
               items: getLanguages.map((Language lang) {
-              return new DropdownMenuItem<String>(
-                          value: lang.languageCode,
-                          child: new Text(lang.name),
-                        );
-                      }).toList(),
+              return DropdownMenuItem<String>(value: lang.languageCode,
+                child: Text(lang.name),
+              );
+              }).toList(),
                 onChanged: (val) {
-                print(val);
               },
             ),
       ],
-      
   ),
+      backgroundColor: const Color.fromRGBO(245, 245, 245, 0.9),
       body: Stack(
         children: [
            screens [index],
-           Positioned(
-              bottom: 10,
-              right: 10, 
-              child: FloatingActionButton(
-              onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => ChatScreen()),
-                );},
-              backgroundColor: Colors.white,
-              child: const 
-              Icon(Icons.chat_bubble_outline),
-              tooltip: 'Chat',
-      ),
-    ),
+    //        Positioned(
+    //           bottom: 10,
+    //           right: 10,
+    //           child: FloatingActionButton(
+    //           onPressed: () {
+    //           Navigator.push(
+    //             context,
+    //             MaterialPageRoute(builder: (context) => ChatScreen()),
+    //             );},
+    //           backgroundColor: Colors.white,
+    //           child:
+    //           Icon(Icons.chat_bubble_outline),
+    //           tooltip: 'Chat',
+    //   ),
+    // ),
   ],
 ),
     drawer: Drawer(
@@ -97,17 +110,7 @@ class _HomeState extends State<Home_screen> {
         decoration: BoxDecoration(
           color: Color.fromARGB(255, 200, 198, 198),
         ),
-        child: 
-        Text('Chords'),
-      ),
-       ListTile(
-        leading: Icon(Icons.star_outline_outlined),
-        title: const Text('Chords Pro',
-        style: TextStyle(fontSize: 16),
-        ),
-        onTap: () {
-          
-        },
+        child:  Text('User'),
       ),
       ListTile(
         leading: Icon(Icons.account_box_outlined),
@@ -147,71 +150,78 @@ class _HomeState extends State<Home_screen> {
       ),
       Spacer(),
       Divider(color: Colors.brown,),
-      ListTile(
-        leading: Icon(Icons.login),
-        title: const Text('ចូលគណនី',
-        style: TextStyle(fontSize: 16),
+      // Logout Button
+      Container(
+        alignment: Alignment.center,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              child: const Text('Email: '),
+            ),
+            Container(
+              child: _userUid(),
+            ),
+          ],
         ),
-        onTap: () {
-          Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const LoginPage()),
-        );
-        },
+      ),
+      Container(
+        padding: const EdgeInsets.all(12),
+        child: _signOutButton(),
       ),
     ],
   ),
 ),
-       bottomNavigationBar: NavigationBarTheme(
-        data: NavigationBarThemeData(
-          indicatorColor: Colors.blueGrey.shade100,
-          labelTextStyle: MaterialStateProperty.all(
-            TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.w500
-            ),
-          ),
-        ),
-        child: NavigationBar(
-          height: 70,
-          backgroundColor: Colors.transparent,
-          selectedIndex: index,
-          onDestinationSelected: (index) =>
-              setState(() => this.index = index),
-        destinations: [
-          NavigationDestination(
-            icon: Icon(Icons.home_outlined,
-            size: 30,
-            ),
-            label: 'ទំព័រដើម',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.explore_outlined,
-             size: 30,
-            ),
-            label: 'ស្វែងរក',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.add_circle_outline,
-             size: 45,
-            ),
-            label: 'បន្ថែម',
-          ),
-            NavigationDestination(
-            icon: Icon(Icons.library_music_outlined,
-             size: 30,
-            ),
-            label: 'ចង្វាក់',
-          ),
-           NavigationDestination(
-            icon: Icon(Icons.widgets_outlined,
-             size: 30,
-            ),
-            label: 'ផ្សេងៗ',
-          ),
-        ],
-      ),
-      ),
+      //  bottomNavigationBar: NavigationBarTheme(
+      //   data: NavigationBarThemeData(
+      //     indicatorColor: Colors.blueGrey.shade100,
+      //     labelTextStyle: MaterialStateProperty.all(
+      //       TextStyle(
+      //         fontSize: 14,
+      //         fontWeight: FontWeight.w500
+      //       ),
+      //     ),
+      //   ),
+      //   child: NavigationBar(
+      //     height: 70,
+      //     backgroundColor: Colors.transparent,
+      //     selectedIndex: index,
+      //     onDestinationSelected: (index) =>
+      //         setState(() => this.index = index),
+      //   destinations: [
+      //     NavigationDestination(
+      //       icon: Icon(Icons.home_outlined,
+      //       size: 30,
+      //       ),
+      //       label: 'ទំព័រដើម',
+      //     ),
+      //     NavigationDestination(
+      //       icon: Icon(Icons.explore_outlined,
+      //        size: 30,
+      //       ),
+      //       label: 'ស្វែងរក',
+      //     ),
+      //     NavigationDestination(
+      //       icon: Icon(Icons.add_circle_outline,
+      //        size: 45,
+      //       ),
+      //       label: 'បន្ថែម',
+      //     ),
+      //       NavigationDestination(
+      //       icon: Icon(Icons.library_music_outlined,
+      //        size: 30,
+      //       ),
+      //       label: 'ចង្វាក់',
+      //     ),
+      //      NavigationDestination(
+      //       icon: Icon(Icons.widgets_outlined,
+      //        size: 30,
+      //       ),
+      //       label: 'ផ្សេងៗ',
+      //     ),
+      //   ],
+      // ),
+      // ),
   );
 }
 }

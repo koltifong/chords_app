@@ -53,13 +53,32 @@ class _LoginPageState extends State<LoginPage> {
     return TextField(
       controller: controller,
       decoration: InputDecoration(
+        border: OutlineInputBorder(),
+        prefixIcon: Icon(Icons.person),
         labelText: title,
       ),
+      keyboardType: TextInputType.emailAddress,
+    );
+  }
+
+  Widget _entryFieldPassword(
+      String title,
+      TextEditingController controller,
+      ) {
+    return TextField(
+      controller: controller,
+      decoration: InputDecoration(
+        border: OutlineInputBorder(),
+        prefixIcon: Icon(Icons.lock),
+        suffixIcon: Icon(Icons.visibility_off),
+        labelText: title,
+      ),
+      keyboardType: TextInputType.number,
     );
   }
 
   Widget _errorMessage() {
-    return Text(errorMessage == '' ? '' : 'Humm ? $errorMessage');
+    return Text(errorMessage == '' ? '' : 'Hmm ? $errorMessage');
   }
 
   Widget _submitButton() {
@@ -76,7 +95,6 @@ class _LoginPageState extends State<LoginPage> {
         setState(() {
           isLogin = !isLogin;
         });
-        
       },
       child: Text(isLogin ? 'Register' : 'Login'),
       );
@@ -86,6 +104,8 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        bottomOpacity: 0.0,
+        elevation: 0.0,
         title: _title(),
         centerTitle: true,
       ),
@@ -98,15 +118,13 @@ class _LoginPageState extends State<LoginPage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            _entryField('Email', _controllerEmail),
-            _entryField('Password', _controllerPassword),
+            _entryField('Email Address', _controllerEmail),
+            _entryFieldPassword('Password', _controllerPassword),
             _errorMessage(),
             _submitButton(),
             _loginOrRegisterButton(),
           ],
         ),
-      
-
       ),
     );
   }
