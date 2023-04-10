@@ -9,6 +9,8 @@ class LoginPage extends StatefulWidget {
   State<LoginPage> createState() => _LoginPageState();
 }
 
+
+
 class _LoginPageState extends State<LoginPage> {
   String? errorMessage = '';
   bool isLogin = true;
@@ -70,10 +72,8 @@ class _LoginPageState extends State<LoginPage> {
       decoration: InputDecoration(
         border: OutlineInputBorder(),
         prefixIcon: Icon(Icons.lock),
-        suffixIcon: Icon(Icons.visibility_off),
         labelText: title,
       ),
-      keyboardType: TextInputType.number,
     );
   }
 
@@ -85,7 +85,8 @@ class _LoginPageState extends State<LoginPage> {
     return ElevatedButton(
       onPressed: 
             isLogin ? signInWithEmailAndPassword : createUserWithEmailAndPassword, 
-      child: Text(isLogin ? 'Login' : 'Register'),
+      child: Text(
+          isLogin ? 'Login' : 'Register'),
     );
   }
 
@@ -109,20 +110,25 @@ class _LoginPageState extends State<LoginPage> {
         title: _title(),
         centerTitle: true,
       ),
-      body: 
-      Container(
+      body: Container(
         height: double.infinity,
         width: double.infinity,
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.all(15),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             _entryField('Email Address', _controllerEmail),
+            const SizedBox(height: 20,),
             _entryFieldPassword('Password', _controllerPassword),
             _errorMessage(),
-            _submitButton(),
-            _loginOrRegisterButton(),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                _loginOrRegisterButton(),
+                _submitButton(),
+              ],
+            ),
           ],
         ),
       ),

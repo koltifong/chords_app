@@ -103,15 +103,30 @@ class _HomeState extends State<Home_screen> {
   ],
 ),
     drawer: Drawer(
-    child: ListView(
-    padding: EdgeInsets.zero,
-    children: [
-      const DrawerHeader(
-        decoration: BoxDecoration(
-          color: Color.fromARGB(255, 200, 198, 198),
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Container(
+          height: 200,
+          color: Colors.lightBlueAccent,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Icon(Icons.account_circle,
+              size: 88,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    child: _userUid(),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
-        child:  Text('User'),
-      ),
       ListTile(
         leading: Icon(Icons.account_box_outlined),
         title: const Text('គណនី',
@@ -124,6 +139,31 @@ class _HomeState extends State<Home_screen> {
         );
         },
       ),
+        ListTile(
+          leading: Icon(Icons.account_circle_outlined),
+          title: const Text('sample',
+            style: TextStyle(fontSize: 16),
+          ),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const MyAccount()
+              ),
+            );
+          },
+        ),
+        ListTile(
+          leading: Icon(Icons.person_outlined),
+          title: const Text('picture',
+            style: TextStyle(fontSize: 16),
+          ),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const MyAccount()),
+            );
+          },
+        ),
       ListTile(
         leading: Icon(Icons.settings_outlined),
         title: const Text('ការកំណត់',
@@ -136,6 +176,7 @@ class _HomeState extends State<Home_screen> {
         );
         },
       ),
+        Divider(color: Colors.brown,),
       ListTile(
         leading: Icon(Icons.info_outline),
         title: const Text('អំពី',
@@ -149,79 +190,65 @@ class _HomeState extends State<Home_screen> {
         },
       ),
       Spacer(),
-      Divider(color: Colors.brown,),
       // Logout Button
       Container(
         alignment: Alignment.center,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              child: const Text('Email: '),
-            ),
-            Container(
-              child: _userUid(),
-            ),
-          ],
-        ),
-      ),
-      Container(
         padding: const EdgeInsets.all(12),
         child: _signOutButton(),
       ),
     ],
   ),
 ),
-      //  bottomNavigationBar: NavigationBarTheme(
-      //   data: NavigationBarThemeData(
-      //     indicatorColor: Colors.blueGrey.shade100,
-      //     labelTextStyle: MaterialStateProperty.all(
-      //       TextStyle(
-      //         fontSize: 14,
-      //         fontWeight: FontWeight.w500
-      //       ),
-      //     ),
-      //   ),
-      //   child: NavigationBar(
-      //     height: 70,
-      //     backgroundColor: Colors.transparent,
-      //     selectedIndex: index,
-      //     onDestinationSelected: (index) =>
-      //         setState(() => this.index = index),
-      //   destinations: [
-      //     NavigationDestination(
-      //       icon: Icon(Icons.home_outlined,
-      //       size: 30,
-      //       ),
-      //       label: 'ទំព័រដើម',
-      //     ),
-      //     NavigationDestination(
-      //       icon: Icon(Icons.explore_outlined,
-      //        size: 30,
-      //       ),
-      //       label: 'ស្វែងរក',
-      //     ),
-      //     NavigationDestination(
-      //       icon: Icon(Icons.add_circle_outline,
-      //        size: 45,
-      //       ),
-      //       label: 'បន្ថែម',
-      //     ),
-      //       NavigationDestination(
-      //       icon: Icon(Icons.library_music_outlined,
-      //        size: 30,
-      //       ),
-      //       label: 'ចង្វាក់',
-      //     ),
-      //      NavigationDestination(
-      //       icon: Icon(Icons.widgets_outlined,
-      //        size: 30,
-      //       ),
-      //       label: 'ផ្សេងៗ',
-      //     ),
-      //   ],
-      // ),
-      // ),
+       bottomNavigationBar: NavigationBarTheme(
+        data: NavigationBarThemeData(
+          indicatorColor: Colors.blueGrey.shade100,
+          labelTextStyle: MaterialStateProperty.all(
+            TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.w500
+            ),
+          ),
+        ),
+        child: NavigationBar(
+          height: 70,
+          backgroundColor: Colors.transparent,
+          selectedIndex: index,
+          onDestinationSelected: (index) =>
+              setState(() => this.index = index),
+        destinations: [
+          NavigationDestination(
+            icon: Icon(Icons.home_outlined,
+            size: 30,
+            ),
+            label: 'ទំព័រដើម',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.explore_outlined,
+             size: 30,
+            ),
+            label: 'ស្វែងរក',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.add_circle_outline,
+             size: 45,
+            ),
+            label: 'បន្ថែម',
+          ),
+            NavigationDestination(
+            icon: Icon(Icons.library_music_outlined,
+             size: 30,
+            ),
+            label: 'ចង្វាក់',
+          ),
+           NavigationDestination(
+            icon: Icon(Icons.widgets_outlined,
+             size: 30,
+            ),
+            label: 'ផ្សេងៗ',
+          ),
+        ],
+      ),
+      ),
   );
 }
 }
