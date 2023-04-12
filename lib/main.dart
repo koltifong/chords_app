@@ -18,13 +18,6 @@ class MyApp extends StatelessWidget {
       title: 'Chords App',
       theme: ThemeData(
          primarySwatch: Colors.grey,
-        //  scaffoldBackgroundColor: Color.fromARGB(255, 226, 224, 224),
-      //   brightness: Brightness.light,
-      //   /* light theme settings */
-      // ),
-      // darkTheme: ThemeData(
-      //   brightness: Brightness.dark,
-      //   /* dark theme settings */
       ),
       home: WidgetTree(),
     ); 

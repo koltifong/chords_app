@@ -21,10 +21,12 @@ dependencies:
   firebase_core: ^2.8.0
   firebase_auth: ^4.3.0
   carousel_pro: ^1.0.0
+  firebase_storage: ^11.1.0
 
 
   js: ^0.6.2
   http: ^0.13.5
+  file_picker: ^5.2.7
 
 
 dev_dependencies:

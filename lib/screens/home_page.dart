@@ -172,56 +172,56 @@ class _HomeState extends State<Home_screen> {
     ],
   ),
 ),
-      //  bottomNavigationBar: NavigationBarTheme(
-      //   data: NavigationBarThemeData(
-      //     indicatorColor: Colors.blueGrey.shade100,
-      //     labelTextStyle: MaterialStateProperty.all(
-      //       TextStyle(
-      //         fontSize: 14,
-      //         fontWeight: FontWeight.w500
-      //       ),
-      //     ),
-      //   ),
-      //   child: NavigationBar(
-      //     height: 70,
-      //     backgroundColor: Colors.transparent,
-      //     selectedIndex: index,
-      //     onDestinationSelected: (index) =>
-      //         setState(() => this.index = index),
-      //   destinations: [
-      //     NavigationDestination(
-      //       icon: Icon(Icons.home_outlined,
-      //       size: 30,
-      //       ),
-      //       label: 'ទំព័រដើម',
-      //     ),
-      //     NavigationDestination(
-      //       icon: Icon(Icons.explore_outlined,
-      //        size: 30,
-      //       ),
-      //       label: 'ស្វែងរក',
-      //     ),
-      //     NavigationDestination(
-      //       icon: Icon(Icons.add_circle_outline,
-      //        size: 45,
-      //       ),
-      //       label: 'បន្ថែម',
-      //     ),
-      //       NavigationDestination(
-      //       icon: Icon(Icons.library_music_outlined,
-      //        size: 30,
-      //       ),
-      //       label: 'ចង្វាក់',
-      //     ),
-      //      NavigationDestination(
-      //       icon: Icon(Icons.widgets_outlined,
-      //        size: 30,
-      //       ),
-      //       label: 'ផ្សេងៗ',
-      //     ),
-      //   ],
-      // ),
-      // ),
+       bottomNavigationBar: NavigationBarTheme(
+        data: NavigationBarThemeData(
+          indicatorColor: Colors.blueGrey.shade100,
+          labelTextStyle: MaterialStateProperty.all(
+            TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.w500
+            ),
+          ),
+        ),
+        child: NavigationBar(
+          height: 70,
+          backgroundColor: Colors.transparent,
+          selectedIndex: index,
+          onDestinationSelected: (index) =>
+              setState(() => this.index = index),
+        destinations: [
+          NavigationDestination(
+            icon: Icon(Icons.home_outlined,
+            size: 30,
+            ),
+            label: 'ទំព័រដើម',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.explore_outlined,
+             size: 30,
+            ),
+            label: 'ស្វែងរក',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.add_circle_outline,
+             size: 45,
+            ),
+            label: 'បន្ថែម',
+          ),
+            NavigationDestination(
+            icon: Icon(Icons.library_music_outlined,
+             size: 30,
+            ),
+            label: 'ចង្វាក់',
+          ),
+           NavigationDestination(
+            icon: Icon(Icons.widgets_outlined,
+             size: 30,
+            ),
+            label: 'ផ្សេងៗ',
+          ),
+        ],
+      ),
+      ),
   );
 }
 }
