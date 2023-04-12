@@ -1,16 +1,15 @@
-import "package:chords_khmer_app/screens/home_page.dart";
 import "package:chords_khmer_app/services/storage.dart";
 import "package:file_picker/file_picker.dart";
 import "package:flutter/material.dart";
 
 class ExploreBar extends StatelessWidget {
-  const ExploreBar({key});
+  const ExploreBar({Key? key,}) : super(key: key);
 
   @override
    Widget build(BuildContext context) {
     final Storage storage = Storage();
     return Scaffold(
-      backgroundColor: Color.fromRGBO(245, 245, 245, 0.9),
+      backgroundColor: const Color.fromRGBO(245, 245, 245, 0.9),
        body: Column(
          children: [
            FutureBuilder(
@@ -69,7 +68,6 @@ class ExploreBar extends StatelessWidget {
              },
              child: const Text('Upload file'),
            ),
-
          ],
        ),
     );
@@ -77,6 +75,8 @@ class ExploreBar extends StatelessWidget {
 }
 
 class DetailScreen extends StatelessWidget {
+  const DetailScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final Storage storage = Storage();
@@ -102,11 +102,10 @@ class DetailScreen extends StatelessWidget {
                   ),
                 ),
               );
-
             }
             if (snapshot.connectionState == ConnectionState.waiting ||
                 !snapshot.hasData) {
-              return Center(
+              return const Center(
                   child: CircularProgressIndicator(),
               );
             }
