@@ -9,6 +9,8 @@ class LoginPage extends StatefulWidget {
   State<LoginPage> createState() => _LoginPageState();
 }
 
+
+
 class _LoginPageState extends State<LoginPage> {
   String? errorMessage = '';
   bool isLogin = true;
@@ -43,7 +45,11 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Widget _title() {
-    return const Text('Firebase Auth');
+    return const Text('Welcome to Chords');
+  }
+
+  Widget _welcome() {
+    return const Text('Welcome');
   }
 
   Widget _entryField(
@@ -53,8 +59,8 @@ class _LoginPageState extends State<LoginPage> {
     return TextField(
       controller: controller,
       decoration: InputDecoration(
-        border: OutlineInputBorder(),
-        prefixIcon: Icon(Icons.person),
+        border: const OutlineInputBorder(),
+        prefixIcon: const Icon(Icons.person),
         labelText: title,
       ),
       keyboardType: TextInputType.emailAddress,
@@ -68,12 +74,10 @@ class _LoginPageState extends State<LoginPage> {
     return TextField(
       controller: controller,
       decoration: InputDecoration(
-        border: OutlineInputBorder(),
-        prefixIcon: Icon(Icons.lock),
-        suffixIcon: Icon(Icons.visibility_off),
+        border: const OutlineInputBorder(),
+        prefixIcon: const Icon(Icons.lock),
         labelText: title,
       ),
-      keyboardType: TextInputType.number,
     );
   }
 
@@ -85,7 +89,8 @@ class _LoginPageState extends State<LoginPage> {
     return ElevatedButton(
       onPressed: 
             isLogin ? signInWithEmailAndPassword : createUserWithEmailAndPassword, 
-      child: Text(isLogin ? 'Login' : 'Register'),
+      child: Text(
+          isLogin ? 'Login' : 'Register'),
     );
   }
 
@@ -109,22 +114,52 @@ class _LoginPageState extends State<LoginPage> {
         title: _title(),
         centerTitle: true,
       ),
-      body: 
-      Container(
-        height: double.infinity,
-        width: double.infinity,
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            _entryField('Email Address', _controllerEmail),
-            _entryFieldPassword('Password', _controllerPassword),
-            _errorMessage(),
-            _submitButton(),
-            _loginOrRegisterButton(),
-          ],
-        ),
+      body: Container(
+            padding: const EdgeInsets.all(15),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                _entryField('Email Address', _controllerEmail),
+                const SizedBox(height: 20,),
+                _entryFieldPassword('Password', _controllerPassword),
+                _errorMessage(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    _loginOrRegisterButton(),
+                    _submitButton(),
+                  ],
+                ),
+                Column(children: <Widget>[
+                  Row(
+                    children: const <Widget>[Text("")],
+                  ),
+                  Row(children: <Widget>[
+                    Expanded(
+                      child: Container(
+                          margin: const EdgeInsets.only(left: 10.0, right: 20.0),
+                          child: const Divider(
+                            color: Colors.black,
+                            height: 36,
+                          )),
+                    ),
+                    const Text("OR"),
+                    Expanded(
+                      child: Container(
+                          margin: const EdgeInsets.only(left: 20.0, right: 10.0),
+                          child: const Divider(
+                            color: Colors.black,
+                            height: 36,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                const Text('Continue with Google'),
+                ])
+              ],
+            ),
       ),
     );
   }

@@ -6,7 +6,9 @@ import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:firebase_core/firebase_core.dart' as firebase_core;
 
 class HomeBar extends StatelessWidget {
-   const HomeBar({Key? key,}) : super(key: key);
+    HomeBar({Key? key,}) : super(key: key);
+
+   final _controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -330,15 +332,15 @@ class HomeBar extends StatelessWidget {
                     //     ],
                     //   ),
                     // ),
-                    Container(
-                      width: double.infinity,
-                      height: 40,
-                      decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(10)),
-                      child: const TextField(
-                        decoration: InputDecoration(
-                            prefixIcon: Icon(Icons.search),
-                            hintText: 'Search...',
-                            border: InputBorder.none),
+                      Container(
+                        width: double.infinity,
+                        height: 40,
+                        decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(10)),
+                        child: const TextField(
+                          decoration: InputDecoration(
+                              prefixIcon: Icon(Icons.search),
+                              hintText: 'Search...',
+                              border: InputBorder.none),
                       ),
                     ),
                     const SizedBox(height: 15,),
