@@ -8,13 +8,15 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:chords_khmer_app/screens/auth/auth.dart';
 import 'package:flutter/material.dart';
 
-import 'package:chords_khmer_app/screens/appbar/search_screen.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:chords_khmer_app/screens/bottombar/explore_bar.dart';
 import 'package:chords_khmer_app/screens/bottombar/home_bar.dart';
 import 'package:chords_khmer_app/screens/bottombar/add_bar.dart';
 import 'package:chords_khmer_app/screens/bottombar/profile_bar.dart';
 
 class Home_screen extends StatefulWidget {
+  const Home_screen({Key? key}) : super(key: key);
+
   @override
   _HomeState createState () => _HomeState();
 
@@ -129,7 +131,7 @@ class _HomeState extends State<Home_screen> {
         ),
       ListTile(
         leading: Icon(Icons.account_box_outlined),
-        title: const Text('គណនី',
+        title: const Text('Account',
         style: TextStyle(fontSize: 16),
         ),
         onTap: () {
@@ -166,7 +168,7 @@ class _HomeState extends State<Home_screen> {
         ),
       ListTile(
         leading: Icon(Icons.settings_outlined),
-        title: const Text('ការកំណត់',
+        title: const Text('Settings',
         style: TextStyle(fontSize: 16),
         ),
         onTap: () {
@@ -176,10 +178,10 @@ class _HomeState extends State<Home_screen> {
         );
         },
       ),
-        Divider(color: Colors.brown,),
+        const Divider(color: Colors.brown,),
       ListTile(
-        leading: Icon(Icons.info_outline),
-        title: const Text('អំពី',
+        leading: const Icon(Icons.info_outline),
+        title: const Text('About us',
         style: TextStyle(fontSize: 16),
         ),
         onTap: () {
@@ -189,7 +191,7 @@ class _HomeState extends State<Home_screen> {
         );
         },
       ),
-      Spacer(),
+      const Spacer(),
       // Logout Button
       Container(
         alignment: Alignment.center,
@@ -215,36 +217,36 @@ class _HomeState extends State<Home_screen> {
           selectedIndex: index,
           onDestinationSelected: (index) =>
               setState(() => this.index = index),
-        destinations: [
+        destinations: const [
           NavigationDestination(
             icon: Icon(Icons.home_outlined,
             size: 30,
             ),
-            label: 'ទំព័រដើម',
+            label: 'Home',
           ),
           NavigationDestination(
             icon: Icon(Icons.explore_outlined,
              size: 30,
             ),
-            label: 'ស្វែងរក',
+            label: 'Explore',
           ),
           NavigationDestination(
             icon: Icon(Icons.add_circle_outline,
-             size: 45,
+             size: 55,
             ),
-            label: 'បន្ថែម',
+            label: '',
           ),
             NavigationDestination(
             icon: Icon(Icons.library_music_outlined,
              size: 30,
             ),
-            label: 'ចង្វាក់',
+            label: 'Melody',
           ),
            NavigationDestination(
             icon: Icon(Icons.widgets_outlined,
              size: 30,
             ),
-            label: 'ផ្សេងៗ',
+            label: 'More',
           ),
         ],
       ),

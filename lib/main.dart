@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:chords_khmer_app/screens/auth/widget_tree.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 // import 'package:chords_khmer_app/screens/home_page.dart';
 // import 'package:flutter_localizations/flutter_localizations.dart';
 

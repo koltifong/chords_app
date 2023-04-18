@@ -1,13 +1,13 @@
 import "package:flutter/material.dart";
 
 class AddBar extends StatelessWidget {
-  const AddBar({key});
+  const AddBar({Key? key}) : super(key: key);
 
   @override
    Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Center(
-        child: const Text('Add'),
+        child: Text('Add'),
       ),
     );
   }
