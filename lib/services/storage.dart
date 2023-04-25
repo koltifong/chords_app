@@ -15,17 +15,17 @@ class Storage {
 
         try {
           await storage.ref('test/$fileName').putFile(file);
-        } on firebase_core.FirebaseException catch (e) {
-          print(e);
+        // ignore: empty_catches
+        } on firebase_core.FirebaseException {
         }
   }
 
   Future<firebase_storage.ListResult> listFiles() async {
     firebase_storage.ListResult results = await storage.ref('test').listAll();
 
-    results.items.forEach((firebase_storage.Reference ref) {
-      print('Found file: $ref');
-    });
+    // ignore: unused_local_variable
+    for (var ref in results.items) {
+    }
     return results;
   }
 

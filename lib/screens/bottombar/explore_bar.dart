@@ -50,6 +50,7 @@ class ExploreBar extends StatelessWidget {
                  allowedExtensions: ['png', 'jpg',],
                );
                if (results == null) {
+                 // ignore: use_build_context_synchronously
                  ScaffoldMessenger.of(context).showSnackBar(
                    const SnackBar(
                      content: Text('No file select'),
@@ -63,6 +64,7 @@ class ExploreBar extends StatelessWidget {
 
                storage
                    .uploadfile(path, fileName)
+                   // ignore: avoid_print
                    .then((value) => print('Done'));
              },
              child: const Text('Upload file'),

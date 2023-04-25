@@ -48,10 +48,6 @@ class _LoginPageState extends State<LoginPage> {
     return const Text('Welcome to Chords');
   }
 
-  Widget _welcome() {
-    return const Text('Welcome');
-  }
-
   Widget _entryField(
     String title,
     TextEditingController controller,

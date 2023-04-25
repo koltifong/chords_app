@@ -31,7 +31,7 @@ class SearchPage extends StatelessWidget {
         ),
       ),
       ),
-      backgroundColor: Color.fromRGBO(245, 245, 245, 0.9),
+      backgroundColor: const Color.fromRGBO(245, 245, 245, 0.9),
       body: GridView.count(
         primary: false,
         padding: const EdgeInsets.all(20),

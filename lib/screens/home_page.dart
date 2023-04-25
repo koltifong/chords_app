@@ -8,16 +8,17 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:chords_khmer_app/screens/auth/auth.dart';
 import 'package:flutter/material.dart';
 
-import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:chords_khmer_app/screens/bottombar/explore_bar.dart';
 import 'package:chords_khmer_app/screens/bottombar/home_bar.dart';
 import 'package:chords_khmer_app/screens/bottombar/add_bar.dart';
 import 'package:chords_khmer_app/screens/bottombar/profile_bar.dart';
 
+// ignore: camel_case_types
 class Home_screen extends StatefulWidget {
   const Home_screen({Key? key}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _HomeState createState () => _HomeState();
 
 }
@@ -35,7 +36,7 @@ Widget _userUid() {
 Widget _signOutButton() {
   return ElevatedButton(
     style: ElevatedButton.styleFrom(
-      primary: Colors.red,
+      backgroundColor: Colors.red,
     ),
     onPressed: signOut,
     child: const Text('Sign Out'),
@@ -45,11 +46,11 @@ Widget _signOutButton() {
 class _HomeState extends State<Home_screen> {
   int index = 0;
   final screens = [
-    HomeBar(),
-    ExploreBar(),
-    AddBar(),
-    LibraryBar(),
-    ProfileBar(),
+    const HomeBar(),
+    const ExploreBar(),
+    const AddBar(),
+    const LibraryBar(),
+    const ProfileBar(),
   ];
 
   @override
@@ -130,7 +131,7 @@ class _HomeState extends State<Home_screen> {
           ),
         ),
       ListTile(
-        leading: Icon(Icons.account_box_outlined),
+        leading: const Icon(Icons.account_box_outlined),
         title: const Text('Account',
         style: TextStyle(fontSize: 16),
         ),
@@ -142,7 +143,7 @@ class _HomeState extends State<Home_screen> {
         },
       ),
         ListTile(
-          leading: Icon(Icons.account_circle_outlined),
+          leading: const Icon(Icons.account_circle_outlined),
           title: const Text('sample',
             style: TextStyle(fontSize: 16),
           ),
@@ -155,7 +156,7 @@ class _HomeState extends State<Home_screen> {
           },
         ),
         ListTile(
-          leading: Icon(Icons.person_outlined),
+          leading: const Icon(Icons.person_outlined),
           title: const Text('picture',
             style: TextStyle(fontSize: 16),
           ),
@@ -167,7 +168,7 @@ class _HomeState extends State<Home_screen> {
           },
         ),
       ListTile(
-        leading: Icon(Icons.settings_outlined),
+        leading: const Icon(Icons.settings_outlined),
         title: const Text('Settings',
         style: TextStyle(fontSize: 16),
         ),
@@ -193,11 +194,35 @@ class _HomeState extends State<Home_screen> {
       ),
       const Spacer(),
       // Logout Button
-      Container(
-        alignment: Alignment.center,
-        padding: const EdgeInsets.all(12),
-        child: _signOutButton(),
-      ),
+        Column(
+          children: [
+            GestureDetector(
+              child: Container(
+                padding: const EdgeInsets.all(10),
+                alignment: Alignment.centerLeft,
+                decoration: BoxDecoration(
+                    color: Colors.black12,
+                    borderRadius: BorderRadius.circular(10)
+                ),
+                child: Row(
+                  children: const [
+                    Icon(Icons.code),
+                    Text(' Development'),
+                  ],
+                ),
+              ),
+              onTap: () {Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const AboutUs ()),
+                );
+              },
+            ),
+            Container(
+              alignment: Alignment.center,
+              padding: const EdgeInsets.all(12),
+              child: _signOutButton(),
+            ),
+          ],
+        ),
     ],
   ),
 ),
@@ -205,7 +230,7 @@ class _HomeState extends State<Home_screen> {
         data: NavigationBarThemeData(
           indicatorColor: Colors.blueGrey.shade100,
           labelTextStyle: MaterialStateProperty.all(
-            TextStyle(
+            const TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.w500
             ),

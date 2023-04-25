@@ -7,20 +7,20 @@ class AboutUs extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('អំពី'),
+        title: const Text('អំពី'),
         bottomOpacity: 0.0,
         elevation: 0.0,
       ),
       body:
        ListView(
         children: [
-          Container(
+          SizedBox(
             height: 90,
             child: ListView(
             // Important: Remove any padding from the ListView.
-            padding: EdgeInsets.all(12),
-            children: [
-              Container(
+            padding: const EdgeInsets.all(12),
+            children: const [
+              SizedBox(
                 height: 200,
                 child: Text('យើងជាតន្ត្រីករ និងអ្នកបង្កើតកម្មវិធី។ ហើយយើងមិនរកប្រាក់ចំណេញពីកម្មវិធីនេះទេ។',
                 style: TextStyle(fontSize: 18),
@@ -29,14 +29,14 @@ class AboutUs extends StatelessWidget {
             ],
            ),
           ),
-          Spacer(),
-          Divider(
+          const Spacer(),
+          const Divider(
             color: Colors.brown,
           ),
           Container(
-            padding: EdgeInsets.all(12),
+            padding: const EdgeInsets.all(12),
             // height: 250,
-            child: Text('ទំនាក់ទំនាក់មកយើង៖ \n Facebook Page: VST Studio \n Youtube Channel: VST Studio',
+            child: const Text('ទំនាក់ទំនាក់មកយើង៖ \n Facebook Page: VST Studio \n Youtube Channel: VST Studio',
             style: TextStyle(fontSize: 18),
             ),
           ),
