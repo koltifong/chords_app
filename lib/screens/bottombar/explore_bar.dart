@@ -1,3 +1,4 @@
+import "package:chords_khmer_app/screens/screens/view_image.dart";
 import "package:chords_khmer_app/services/storage.dart";
 import "package:file_picker/file_picker.dart";
 import "package:flutter/material.dart";
@@ -12,8 +13,13 @@ class ExploreBar extends StatelessWidget {
       backgroundColor: const Color.fromRGBO(245, 245, 245, 0.9),
        body: Column(
          children: [
+          Container(
+            padding: EdgeInsets.all(8),
+            alignment: Alignment.centerLeft,
+            child: const Text('This is my car.'),
+          ),
            FutureBuilder(
-               future: storage.downloadURl('image.jpg'),
+               future: storage.downloadURl('Image.jpg'),
                builder: (BuildContext context,
                    AsyncSnapshot<String> snapshot) {
                  if (snapshot.connectionState == ConnectionState.done &&
@@ -42,7 +48,10 @@ class ExploreBar extends StatelessWidget {
                  return Container();
                },
            ),
-           ElevatedButton(
+           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children:[
+            ElevatedButton(
              onPressed: () async {
                final results = await FilePicker.platform.pickFiles(
                  allowMultiple: false,
@@ -68,6 +77,15 @@ class ExploreBar extends StatelessWidget {
                    .then((value) => print('Done'));
              },
              child: const Text('Upload file'),
+             ),
+             ElevatedButton(
+              onPressed: () {
+                  Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const DetailScreen ()),
+                );
+             }, 
+             child: Text('View'))
+            ],
            ),
          ],
        ),
@@ -84,7 +102,7 @@ class DetailScreen extends StatelessWidget {
     return Scaffold(
       body:
       FutureBuilder(
-          future: storage.downloadURl(''),
+          future: storage.downloadURl('Image.jpg'),
           builder: (BuildContext context,
               AsyncSnapshot<String> snapshot) {
             if (snapshot.connectionState == ConnectionState.done &&

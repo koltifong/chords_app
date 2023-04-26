@@ -88,21 +88,17 @@ class _HomeState extends State<Home_screen> {
       body: Stack(
         children: [
            screens [index],
-    //        Positioned(
-    //           bottom: 10,
-    //           right: 10,
-    //           child: FloatingActionButton(
-    //           onPressed: () {
-    //           Navigator.push(
-    //             context,
-    //             MaterialPageRoute(builder: (context) => ChatScreen()),
-    //             );},
-    //           backgroundColor: Colors.white,
-    //           child:
-    //           Icon(Icons.chat_bubble_outline),
-    //           tooltip: 'Chat',
-    //   ),
-    // ),
+            Positioned(
+              bottom: 10,
+              right: 10,
+              child: FloatingActionButton(
+              onPressed: () {},
+              backgroundColor: Colors.white,
+              tooltip: 'Refresh',
+              child:
+              const Icon(Icons.refresh),
+      ),
+    ),
   ],
 ),
     drawer: Drawer(
@@ -211,7 +207,8 @@ class _HomeState extends State<Home_screen> {
                   ],
                 ),
               ),
-              onTap: () {Navigator.push(context,
+              onTap: () {
+                Navigator.push(context,
                   MaterialPageRoute(builder: (context) => const AboutUs ()),
                 );
               },
