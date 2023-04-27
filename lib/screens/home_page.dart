@@ -127,8 +127,8 @@ class _HomeState extends State<Home_screen> {
           ),
         ),
       ListTile(
-        leading: const Icon(Icons.account_box_outlined),
-        title: const Text('Account',
+        leading: const Icon(Icons.account_circle_outlined),
+        title: const Text('Profile',
         style: TextStyle(fontSize: 16),
         ),
         onTap: () {
@@ -139,29 +139,18 @@ class _HomeState extends State<Home_screen> {
         },
       ),
         ListTile(
-          leading: const Icon(Icons.account_circle_outlined),
-          title: const Text('sample',
+          leading: const Icon(Icons.library_music_outlined),
+          title: const Text('Library',
             style: TextStyle(fontSize: 16),
           ),
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const MyAccount()
-              ),
-            );
-          },
+          onTap: () {},
         ),
         ListTile(
-          leading: const Icon(Icons.person_outlined),
-          title: const Text('picture',
+          leading: const Icon(Icons.tune),
+          title: const Text('Genre',
             style: TextStyle(fontSize: 16),
           ),
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const MyAccount()),
-            );
-          },
+          onTap: () {},
         ),
       ListTile(
         leading: const Icon(Icons.settings_outlined),
