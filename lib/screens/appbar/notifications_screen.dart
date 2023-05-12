@@ -12,15 +12,14 @@ class NotificationScreen extends StatelessWidget {
         elevation: 0.0,
         title: const Text('Notifications'),
         centerTitle: true,
-          actions: [
-           IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.playlist_add_check)),
-          ],        
-        ),
-        backgroundColor: const Color.fromRGBO(245, 245, 245, 0.9),
+        actions: [
+          IconButton(
+              onPressed: () {}, icon: const Icon(Icons.playlist_add_check)),
+        ],
+      ),
+      backgroundColor: const Color.fromRGBO(245, 245, 245, 0.9),
       body: Container(
-        padding: EdgeInsets.all(5),
+        padding: const EdgeInsets.all(5),
         child: Column(
           children: [
             GestureDetector(
@@ -29,8 +28,7 @@ class NotificationScreen extends StatelessWidget {
                 width: 400,
                 decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.circular(10)
-                ),
+                    borderRadius: BorderRadius.circular(10)),
               ),
             ),
           ],
