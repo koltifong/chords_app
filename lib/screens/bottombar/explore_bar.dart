@@ -21,7 +21,7 @@ class ExploreBar extends StatelessWidget {
             child: const Text('This is my car.'),
           ),
           FutureBuilder(
-            future: storage.downloadURl('Image.jpg'),
+            future: storage.downloadURl('image.jpg'),
             builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
               if (snapshot.connectionState == ConnectionState.done &&
                   snapshot.hasData) {
@@ -107,7 +107,7 @@ class DetailScreen extends StatelessWidget {
     final Storage storage = Storage();
     return Scaffold(
       body: FutureBuilder(
-          future: storage.downloadURl('Image.jpg'),
+          future: storage.downloadURl('image.jpg'),
           builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
             if (snapshot.connectionState == ConnectionState.done &&
                 snapshot.hasData) {
