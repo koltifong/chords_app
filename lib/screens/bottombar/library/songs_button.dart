@@ -9,7 +9,7 @@ class SongsButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Songs'),
+        title: const Text('Songs'),
         actions: [
            IconButton(
                 onPressed: () => Navigator.of(context)
@@ -18,11 +18,8 @@ class SongsButton extends StatelessWidget {
         ],
       ),
       body: SingleChildScrollView(
-        child: Container(
-          // padding: const EdgeInsets.all(tDefaultsize),
-          child: Column(
-            
-          ),
+        child: Column(
+          
         ),
       ),
     );

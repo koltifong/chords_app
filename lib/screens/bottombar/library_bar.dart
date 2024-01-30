@@ -1,13 +1,11 @@
-import 'package:chords_khmer_app/screens/bottombar/library/folder_button.dart';
-import "package:chords_khmer_app/screens/bottombar/library/songs_button.dart";
 import "package:flutter/material.dart";
 
 class LibraryBar extends StatelessWidget {
-  const LibraryBar({key});
+  const LibraryBar({Key? key,}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       // body: Container(
       //       padding: EdgeInsets.all(10),
       //   child: Row(

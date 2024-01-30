@@ -7,7 +7,7 @@ class MyAccount extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('គណនី'),
+        title: const Text('គណនី'),
         // centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -27,22 +27,18 @@ class MyAccount extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 15,),
-              Container(
-                child: Text('Tifong',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                ),
+              const Text('Tifong',
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
 
                  const SizedBox(height: 5,),
-              Container(
-                child: Text('Edit your account',
-                style: TextStyle(fontSize: 12, color: Colors.blue, decoration: TextDecoration.underline),
-                ),
+              const Text('Edit your account',
+              style: TextStyle(fontSize: 12, color: Colors.blue, decoration: TextDecoration.underline),
               ),
 
               const SizedBox(height: 20,),
               Container(
-                 padding: EdgeInsets.all(20),
+                 padding: const EdgeInsets.all(20),
                 child:
                   TextFormField(
                     decoration: const InputDecoration(
@@ -55,7 +51,7 @@ class MyAccount extends StatelessWidget {
               ),
                  const SizedBox(height: 0),
               Container(
-                 padding: EdgeInsets.all(20),
+                 padding: const EdgeInsets.all(20),
                 child:
                   TextFormField(
                     decoration: const InputDecoration(
@@ -68,7 +64,7 @@ class MyAccount extends StatelessWidget {
               ),
               const SizedBox(height: 0),
               Container(
-                 padding: EdgeInsets.all(20),
+                 padding: const EdgeInsets.all(20),
                 child:
                   TextFormField(
                     decoration: const InputDecoration(
@@ -82,7 +78,7 @@ class MyAccount extends StatelessWidget {
               ),
               const SizedBox(),
               ElevatedButton(
-                 child: Text('Update'),
+                 child: const Text('Update'),
                 onPressed: () {
                   Navigator.pop(context);
                 }
